@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CamServer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CamServer</h1>
+        </div>
+        <div class="content">
+            <div class="camera">
+                <img src="{{ url_for('video_feed') }}" width="{{ width }}" height="{{ height }}">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
