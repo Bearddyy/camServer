@@ -1,3 +1,2 @@
 flask
-atexit
-cv2
+opencv-python

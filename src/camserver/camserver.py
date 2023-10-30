@@ -34,9 +34,13 @@ if __name__ == '__main__':
     app = Flask(__name__)
     cam = Camera(args.camera_id)
 
+    width = int(cam.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cam.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
+
     @app.route('/')
     def index():
-        return render_template('index.html')
+        return render_template('index.html', width=width, height=height)
 
     def gen():
         while True:
@@ -50,6 +54,6 @@ if __name__ == '__main__':
                         mimetype='multipart/x-mixed-replace; boundary=frame')
 
     app.run(host='', port=5000, debug=True)
-    
+
 
 
