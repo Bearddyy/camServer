@@ -23,7 +23,10 @@ class Camera(object):
         atexit.register(self.__del__)
 
     def __del__(self):
-        self.cap.release()
+        if self.pi:
+            self.cap.close()
+        else:
+            self.cap.release()
 
     def get_frame(self):
         if self.pi:
